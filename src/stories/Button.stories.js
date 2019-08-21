@@ -10,6 +10,6 @@ export const text = () =>
     id="button1"
     label="Primary button"
     buttonType="primary"
-    onClick={() => console.log('clicked')}
+    onClick={action('clicked')}
   />
 ;
