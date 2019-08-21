@@ -1,0 +1,35 @@
+{
+  "extends": "stylelint-config-recommended-scss",
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "color-hex-length": [
+      "short",
+      { "severity": "warning" }
+    ],
+    "declaration-no-important": true,
+    "max-nesting-depth": 4,
+    "order/order": [
+      "custom-properties",
+      "dollar-variables",
+      "at-rules",
+      "declarations",
+      "rules",
+    ],
+    "order/properties-alphabetical-order": [
+      true,
+      { "severity": "warning" }
+    ],
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "first-nested",
+          "after-single-line-comment"
+        ]
+      }
+    ],
+    "selector-max-id": 0,
+  }
+}

@@ -1,0 +1,19 @@
+/*
+----------------------------------------------------------------------------
+Utilities.
+
+NOTES:
+1. ".is-" naming convention based on https://smacss.com/book/type-state.
+2. Using "!important" enforces immutability, which is the purpose of utility classes.
+----------------------------------------------------------------------------
+*/
+
+.screen-reader {
+  @include visually-hide;
+}
+
+.is-disabled,
+:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

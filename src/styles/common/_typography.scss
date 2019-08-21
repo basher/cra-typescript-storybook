@@ -1,0 +1,26 @@
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: $font-family;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-title;
+  font-weight: 600;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: $font-family-title;
+  font-size: inherit;
+  line-height: inherit;
+}

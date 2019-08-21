@@ -1,0 +1,36 @@
+/*
+----------------------------------------------------------------------------
+Main breakpoints.
+
+NOTES:
+1. Add breakpoint Sass variables as appropriate.
+2. Create a mixin per breakpoint, whose name is the same as the breakpoints defined in (1).
+3. Create a mixin to generate CSS content to identify the media query, which can be leveraged by JS.
+4. Invoke the mixin from (3) on the body element.
+----------------------------------------------------------------------------
+*/
+
+/*[1]*/
+$bp-small: 320px !default;
+
+/*[2]*/
+@mixin bp-small {
+  @media (max-width: $bp-small) {
+    @content;
+  }
+}
+
+/*[3]*/
+@mixin define-bp($name) {
+  &::before {
+    content: $name;
+    display: none;
+  }
+}
+
+/*[4]*/
+body {
+  @include bp-small {
+    @include define-bp('bp-small');
+  }
+}

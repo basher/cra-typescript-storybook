@@ -1,0 +1,160 @@
+/*
+----------------------------------------------------------------------------
+Mixins.
+----------------------------------------------------------------------------
+*/
+
+/*
+----------------------------------------------------------------------------
+Detect IE11.
+
+Usage:
+
+.my-element {
+  @include ie-11 {
+    // ie11 styles...
+  }
+}
+----------------------------------------------------------------------------
+*/
+@mixin ie-11 {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+/*
+----------------------------------------------------------------------------
+For A11y.
+----------------------------------------------------------------------------
+*/
+@mixin visually-hide {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/*
+----------------------------------------------------------------------------
+Flexbox.
+----------------------------------------------------------------------------
+*/
+/* 1. Simple flex*/
+@mixin flex-simple(
+  $display: flex,
+  $direction: row,
+  $justify: space-between,
+  $align: center,
+  $wrap: nowrap
+) {
+  align-items: $align;
+  display: $display;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+}
+
+/*
+----------------------------------------------------------------------------
+Focus.
+
+Works in conjunction with "what-input" NPM package.
+----------------------------------------------------------------------------
+*/
+@mixin focus-default($focus-within: false) {
+  /* Explicitly setting :hover behaviour for mouse, and :focus behaviour for keyboard interactions */
+  /* stylelint-disable order/order*/
+
+  $focus-selector: ':focus';
+  @if $focus-within {
+    $focus-selector: ':focus-within';
+  }
+
+  @at-root [data-whatintent='keyboard'] &#{$focus-selector}:after {
+    border-color: currentColor;
+    border-style: $focus-border-style;
+    border-width: $focus-border-width;
+    content: '';
+    display: block;
+    pointer-events: none; /* Otherwise click event is "hijacked" by pseudo element*/
+    position: absolute;
+  }
+
+  &#{$focus-selector}:after {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
+  @at-root [data-whatintent='mouse'] &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    box-shadow: none;
+    transform: scale(0.975);
+  }
+  /* stylelint-enable order/order*/
+}
+
+@mixin focus-inset {
+  &:focus:after {
+    bottom: $focus-border-offset;
+    left: $focus-border-offset;
+    right: $focus-border-offset;
+    top: $focus-border-offset;
+  }
+}
+
+/*
+----------------------------------------------------------------------------
+Buttons.
+----------------------------------------------------------------------------
+*/
+/* 1. Default text button*/
+@mixin button-default {
+  @include focus-default;
+  @include focus-inset;
+  overflow: visible;
+  position: relative;
+
+  &:focus:after {
+    border-radius: $border-radius-large;
+  }
+}
+
+/* 2. Default icon button*/
+@mixin icon-button-default($icon-size: $icon-size-button) {
+  @include button-default;
+
+  .SVGIcon {
+    height: $icon-size-button;
+    width: $icon-size-button;
+
+    * {
+      fill: inherit;
+    }
+
+    &.blue {
+      fill: $app-blue;
+    }
+
+    &.red {
+      fill: $app-red;
+    }
+
+    &.green {
+      fill: $app-green;
+    }
+
+    &.white {
+      fill: $white;
+    }
+  }
+}

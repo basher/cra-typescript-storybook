@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TextButton from './components/Buttons/TextButton';
+
+/**
+ * Detemines what type of user interaction has occured.
+ */
+import whatInput from 'what-input';
+whatInput.ask();
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TextButton
+        id="button1"
+        label="Primary button"
+        buttonType="primary"
+        onClick={() => console.log('clicked')}
+      />
+      <br />
+      <br />
+      <TextButton
+        id="button2"
+        label="Seondary button"
+        buttonType="secondary"
+        onClick={() => console.log('clicked')}
+      />
+      <br />
+      <br />
+      <TextButton
+        id="button3"
+        label="Disabled primary button"
+        buttonType="primary"
+        onClick={() => console.log('clicked')}
+        disabled
+      />
+    </>
   );
-}
+};
 
 export default App;

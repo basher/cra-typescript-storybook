@@ -1,0 +1,36 @@
+/* TODO
+1. Set default background-color ???
+2. Set better border properties (currently set to 0).
+3. Set correct box-shadow on colour variants.
+*/
+
+.TextButton {
+  @include button-default;
+  border: 0;
+  border-radius: $border-radius-large;
+  color: $white;
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.625rem;
+
+  &-primary {
+    background-color: $color-brand;
+  }
+
+  &-secondary {
+    background-color: lighten($black, 25);
+  }
+
+  &-actionPositive {
+    background-color: $color-success;
+  }
+
+  &-actionNegative {
+    background-color: $color-failure;
+  }
+
+  &-actionNeutral {
+    background-color: $color-neutral;
+  }
+}

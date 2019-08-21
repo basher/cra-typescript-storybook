@@ -1,0 +1,22 @@
+/*
+----------------------------------------------------------------------------
+Base scaffold, containing all !default Sass variables.
+Be aware of the order of partials below.
+
+This file is imported by all TSX components - e.g.
+"src/components/ComponentName/styles/index.scss"
+----------------------------------------------------------------------------
+*/
+
+/* See https://github.com/postcss/autoprefixer/blob/master/README.md#does-autoprefixer-polyfill-grid-layout-for-ie/
+/* autoprefixer grid: autoplace */
+
+/* The clever stuff... put it first*/
+@import 'base/mixins';
+
+/* Variable declarations... order is important here too*/
+@import 'base/breakpoints';
+@import 'base/colors';
+@import 'base/type';
+@import 'base/variables';
+@import 'base/zindex';

@@ -1,0 +1,38 @@
+/*
+----------------------------------------------------------------------------
+Variables.
+----------------------------------------------------------------------------
+*/
+
+/*
+----------------------------------------------------------------------------
+Gutters (margin, padding, etc) to establish rhythm & consistency.
+----------------------------------------------------------------------------
+*/
+$gutter-xs: 0.25rem !default;
+$gutter-s: 0.5rem !default;
+$gutter: 1rem !default;
+$gutter-m: 1.25rem !default;
+$gutter-l: 1.5rem !default;
+$gutter-xl: 2rem !default;
+
+/*
+----------------------------------------------------------------------------
+Borders.
+----------------------------------------------------------------------------
+*/
+/* 1. Defaults.*/
+$border-style: solid !default;
+$border-width: 1px !default;
+$border-width-medium: $border-width * 2 !default;
+
+/* 2. Rounded corners.*/
+$border-radius: 1rem !default;
+$border-radius-small: 0.25rem !default;
+$border-radius-large: 2rem !default;
+$border-radius-round: 50% !default;
+
+/* 3. Focus.*/
+$focus-border-style: dotted !default;
+$focus-border-width: $border-width-medium !default;
+$focus-border-offset: $border-width-medium * 2 !default;
